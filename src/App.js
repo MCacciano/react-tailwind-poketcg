@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
+import SearchForm from './components/SearchForm';
+import CardList from './components/CardList';
+
 import './App.css';
 
-function App() {
+const App = () => {
+  const [cards, setCards] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col">
+      <div className="flex justify-center bg-red-700">
+        <h1 className="text-3xl text-white py-2">Pokemon TCG Search</h1>
+      </div>
+      <div className="flex flex-col">
+        <SearchForm setCards={setCards} />
+        <CardList cards={cards} />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
